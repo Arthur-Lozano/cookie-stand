@@ -59,7 +59,4 @@ var seattle = {
 li.textContent = hoursOp[i];
 ul.appendChild(li);
 }
-  };
-
-
-
+  },
