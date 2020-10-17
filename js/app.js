@@ -1,65 +1,160 @@
-'use strict'
+'use strict';
 
-
-//Create object(s) - Number One below
-var hoursOp = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm'];
-var myCookies = ['16 cookies', '20 cookies', '35 cookies', '48 cookies', '56 cookies', '77 cookies', '93 cookies', '144 cookies', '119 cookies', '84 cookies', '61 cookies', '23 cookies', '42 cookies', '57 cookies', 'Total: 875 cookies'];
-// First object with given data and properties
-//2. the render needs to be a method of the object
-// render article with h2, p, ul with list, img
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var ParentElement = document.getElementById('cookie-stand');
+var seattleUL = document.getElementById('seattle');
+var tokyoUL = document.getElementById('tokyo');
+var dubaiUL = document.getElementById('dubai');
+var parisUL = document.getElementById('paris');
+var limaUL = document.getElementById('lima');
 
 var seattle = {
-  name: 'Seattle',
-  min: 23,
-  max: 65,
-  avgCookie: 6.3, // Simulated amount of cookies purchased
-  cookiesPerHrArray: [],
-  totalSale: 0,
-  // Uses a method of that object to generate a random number of customers per hour.
-  // Helper function to get random number, code used from mdn docs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-  randomCustomer: function () {
-    for (var i = 0; i < hoursOp.length; i++) {
-      var customerTotal = randomNumber(this.min, this.max);
-      var simulatedAmtCookies = math.floor(this.avgCookie * customerTotal);
-      this.totalSale += simulatedAmtCookies;
-      this.cookiesPerHrArray.push(simulatedAmtCookies);
+  name: ('Seattle'),
+  minCustomers: 23,
+  maxCustomers: 65,
+  avgCookiesSold: 6.3,
+  cookiesSoldPerHour: [],
+  dailyStoreSales: 0,
+  randomCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  },
+  calcCookiesSoldPerHour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+      this.cookiesSoldPerHour.push(cookiesPerHour);
+      this.dailyStoreSales += cookiesPerHour;
+      // console.log('calculate cookies per hour');
     }
   },
+  render: function () {
+    this.calcCookiesSoldPerHour();
+    // console.log('render the list');
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `Total: ${hours[i]}: ${this.cookiesSoldPerHour[i]} cookies`;
+      seattleUL.appendChild(li);
+    }
+  }
+};
 
-  render: function(){
-    this.randomCustomer();
+var tokyo = {
+  name: ('Tokyo'),
+  minCustomers: 3,
+  maxCustomers: 24,
+  avgCookiesSold: 1.2,
+  cookiesSoldPerHour: [],
+  dailyStoreSales: 0,
+  randomCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  },
+  calcCookiesSoldPerHour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+      this.cookiesSoldPerHour.push(cookiesPerHour);
+      this.dailyStoreSales += cookiesPerHour;
+      // console.log('calculate cookies per hour');
+    }
+  },
+  render: function () {
+    this.calcCookiesSoldPerHour();
+    // console.log('render the list');
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `Total: ${hours[i]}: ${this.cookiesSoldPerHour[i]} cookies`;
+      tokyoUL.appendChild(li);
+    }
+  }
+};
 
-  //1. render to the DOM
-  var parentElement = document.getElementById('cityCookie');
-  //Shows everything within the getElement method within the console - console.log(parentElement);
+var dubai = {
+  name: ('Dubai'),
+  minCustomers: 11,
+  maxCustomers: 38,
+  avgCookiesSold: 3.7,
+  cookiesSoldPerHour: [],
+  dailyStoreSales: 0,
+  randomCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  },
+  calcCookiesSoldPerHour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+      this.cookiesSoldPerHour.push(cookiesPerHour);
+      this.dailyStoreSales += cookiesPerHour;
+      // console.log('calculate cookies per hour');
+    }
+  },
+  render: function () {
+    this.calcCookiesSoldPerHour();
+    // console.log('render the list');
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `Total: ${hours[i]}: ${this.cookiesSoldPerHour[i]} cookies`;
+      dubaiUL.appendChild(li);
+    }
+  }
+};
 
+var paris = {
+  name: ('Paris'),
+  minCustomers: 20,
+  maxCustomers: 38,
+  avgCookiesSold: 2.3,
+  cookiesSoldPerHour: [],
+  dailyStoreSales: 0,
+  randomCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  },
+  calcCookiesSoldPerHour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+      this.cookiesSoldPerHour.push(cookiesPerHour);
+      this.dailyStoreSales += cookiesPerHour;
+      // console.log('calculate cookies per hour');
+    }
+  },
+  render: function () {
+    this.calcCookiesSoldPerHour();
+    // console.log('render the list');
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `Total: ${hours[i]}: ${this.cookiesSoldPerHour[i]} cookies`;
+      parisUL.appendChild(li);
+    }
+  }
+};
 
-  // When creating elements there is a pattern
-  // Create element
-  // give it content
-  // append to the DOM
-  var article = document.createElement('article');
-  parentElement.appendChild(article); //Created Element and appended to the DOM which can be viewed in the browser developer window, the $0 shows it was created in Javascript not HTML
+var lima = {
+  name: ('Lima'),
+  minCustomers: 2,
+  maxCustomers: 16,
+  avgCookiesSold: 4.6,
+  cookiesSoldPerHour: [],
+  dailyStoreSales: 0,
+  randomCustomers: function () {
+    return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+  },
+  calcCookiesSoldPerHour: function () {
+    for (var i = 0; i < hours.length; i++) {
+      var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+      this.cookiesSoldPerHour.push(cookiesPerHour);
+      this.dailyStoreSales += cookiesPerHour;
+      // console.log('calculate cookies per hour');
+    }
+  },
+  render: function () {
+    this.calcCookiesSoldPerHour();
+    // console.log('render the list');
+    for (var i = 0; i < hours.length; i++) {
+      var li = document.createElement('li');
+      li.textContent = `Total: ${hours[i]}: ${this.cookiesSoldPerHour[i]} cookies`;
+      limaUL.appendChild(li);
+    }
+  }
+};
 
-  // A little easier to make variable name similar to element created
-  var h2 = document.createElement('h2');// h2 is an object
-  h2.textContent = seattle.name;//So it has properties such as textContent
-  article.appendChild(h2);
-
-  var p = document.createElement('p');
-  p.textContent = `${seattle.name} is an expensive city for cookies ${seattle.maxHours}`;
-  article.appendChild(p);
-
-  var ul = document.createElement('ul');
-  article.appendChild(ul);
-
-  //most relevant part of lab-06
-  for(var i = 0; i<hoursOp.length; i++) {
-    var li = document.createElement('li');
-li.textContent = hoursOp[i];
-ul.appendChild(li);
-}
-  };
-
-
-
+seattle.render();
+tokyo.render();
+dubai.render();
+paris.render();
+lima.render();
