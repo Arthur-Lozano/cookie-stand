@@ -26,7 +26,8 @@ var seattle = {
     }
   },
 
-
+  render: function(){
+    this.randomCustomer();
 
   //1. render to the DOM
   var parentElement = document.getElementById('cityCookie');
@@ -58,7 +59,7 @@ var seattle = {
 li.textContent = hoursOp[i];
 ul.appendChild(li);
 }
-
+  };
 
 
 
