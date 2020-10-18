@@ -1,6 +1,75 @@
 'use strict';
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+
+function Store(name, minCustomers, maxCustomers, avgCookiesSold) {
+  this.name = name;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.avgCookiesSold = avgCookiesSold;
+  this.cookiesSoldPerHour = [];
+  this.dailyStoreSale = 0;
+}
+Store.prototype.randomCustomers = function () {
+  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+};
+Store.prototype.calcCookiesSoldPerHour = function () {
+  for (var i = 0; i < hours.length; i++) {
+    var cookiesPerHour = Math.ceil(this.randomCustomers() * this.avgCookiesSold);
+    this.cookiesSoldPerHour.push(cookiesPerHour);
+    this.dailyStoreSale += cookiesPerHour;
+    // console.log('calculate cookies per hour');
+  }
+};
+
+Store.prototype.render = function () { // runs/generates a row for each object instantiated 
+  this.calcCookiesSoldPerHour();
+  var tr = document.createElement('tr'); // where the name goes 27 - 30
+  var td = document.createElement('td');
+  td.textContent = this.name;
+  tr.appendChild(td);
+  for (var i = 0; i < this.cookiesSoldPerHour.length; i++) {// - 36 are all the numbers
+    var td = document.createElement('td');
+    td.textContent = this.cookiesSoldPerHour[i];
+    tr.appendChild(td); // make td add text put it to the row
+  }
+  var td = document.createElement('td');
+  td.textContent = this.dailyStoreSale;
+  tr.appendChild(td);
+  parentElement.appendChild(tr);
+};
+var parentElement = document.getElementById('table');
+var tr = document.createElement('tr'); // where the name goes 27 - 30
+var td = document.createElement('td');
+td.textContent = '';
+tr.appendChild(td);
+//var tr = document.createElement('tr'); // created first instance of row
+for (var i = 0; i < hours.length; i++) {//6am -7pm
+  var td = document.createElement('td');
+  td.textContent = hours[i];
+  tr.appendChild(td);
+}
+var td = document.createElement('td');
+td.textContent = 'total';
+tr.appendChild(td);
+parentElement.appendChild(tr);
+var seattleStore = new Store('Seattle', 23, 65, 6.3);
+var tokyoDrift = new Store('tokyoStore', 3, 24, 1.2);
+var dubaiRich = new Store('dubai', 11, 38, 3.7);
+var parisOver = new Store('paris', 20, 38, 3.4);
+var limaLove = new Store('lima', 2, 16, 4.6);
+
+
+seattleStore.render();
+tokyoDrift.render();
+dubaiRich.render();
+parisOver.render();
+limaLove.render();
+
+
+
+/*
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var ParentElement = document.getElementById('cookie-stand');
 var seattleUL = document.getElementById('seattle');
 var tokyoUL = document.getElementById('tokyo');
@@ -158,3 +227,9 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+
+var ParentElement = document.getElementById('table')
+var tr = document.createElement('tr')
+var td = document.createElement('td')
+var seattle*/
