@@ -1,3 +1,3 @@
 # cookie-stand
 
-### Worked with (Colton, Travis, Jacque, Ceylin, Thomas)
+### Worked with (Colton, Travis, Jenner, Jacque, Ceylin, Thomas)
