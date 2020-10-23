@@ -11,22 +11,13 @@ header nav {
   background-color: burlywood;
   height: 70px;
 }
-header li {
-  float: left;
-  line-height: 100px;
-  margin-left: 30px;
-}
-a:hover {
-  background-color: rgb(0, 234, 255);
-}
 /*main*/
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: salmon;
   height: 150px;
 }
-
-#storeInfo {
+.storeInfo {
   z-index: inherit;
   background-color: coral;
   border-color: black;
@@ -37,19 +28,15 @@ body {
   size: 50px;
   font: bold;
 }
-
   /* min-height: calc(100vh-211px-58px);*/
 }
 main li{
-  float: right;
   line-height: 100px;
   margin-left: 30px;
 }
-
 /* Moved the first image only within the list */
 main li:first-child{
   margin-left: 0px;
-  float: left;
   }
 /*
 img {
@@ -61,30 +48,16 @@ img {
   width: 150px;
   box-shadow: 10px 10px;
 }*/
-
-table, th, td {
-  border: 3px solid black;
-  border-collapse: collapse;
-  padding: 15px 15px 15px 15px;
-}
-
-td:hover {
-  background-color: yellow;
-}
-/* Create four equal columns that sits next to each other */
 .column {
   max-width: 25%;
   padding: 0 4px;
 }
-
 .column img {
   margin-top: 8px;
   vertical-align: middle;
   width: 100%;
 }
-
 /* footer */
-
 footer {
   text-align: center;
   background-color: black;
