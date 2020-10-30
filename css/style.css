@@ -51,7 +51,7 @@ main li:first-child{
   margin-left: 0px;
   float: left;
   }
-/*
+
 img {
   float: right;
   padding-right: 500px;
@@ -60,7 +60,7 @@ img {
   padding: 5px;
   width: 150px;
   box-shadow: 10px 10px;
-}*/
+}
 
 table, th, td {
   border: 3px solid black;
@@ -92,14 +92,6 @@ footer {
   height:100px;
   clear:both;
 }
-
-/*#addCookieStore {
-  border: 4px solid black;
-  border-radius: 4px;
-  padding: 12px 20px;
-  width: 50%;
-  margin: 30px;
-}*/
 
 /* Style inputs */
 input {
