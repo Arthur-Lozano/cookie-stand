@@ -1,67 +1,99 @@
-/*header*/
-header {
-  text-align: center;
-  background-color: black;
-  color: white;
-  height: 110px;
-}
-header nav {
-  margin: auto;
-  width: 100%;
-  background-color: burlywood;
-  height: 70px;
-}
-/*main*/
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: salmon;
-  height: 150px;
+  background-color: #2ec4b6;
+  align-content: center;
+  width: 80%;
+  margin: auto;
+  border: 7px solid red;
+  height: auto;
+
 }
-.storeInfo {
-  z-index: inherit;
-  background-color: coral;
-  border-color: black;
-  border-width: 22px;
-  height: 450px;
-  width: 450px;
-  padding: 15px;
-  size: 50px;
-  font: bold;
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ff9f1c;
+  position: relative;
 }
-  /* min-height: calc(100vh-211px-58px);*/
+
+li {
+  float: left;
 }
-main li{
-  line-height: 100px;
-  margin-left: 30px;
-}
-/* Moved the first image only within the list */
-main li:first-child{
-  margin-left: 0px;
-  }
-/*
-img {
-  float: right;
-  padding-right: 500px;
-  font-family: 'Piazzolla', serif;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
-  box-shadow: 10px 10px;
-}*/
-.column {
-  max-width: 25%;
-  padding: 0 4px;
-}
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
-  width: 100%;
-}
-/* footer */
-footer {
+
+li a {
+  display: block;
+  color: white;
   text-align: center;
-  background-color: black;
-  color:white;
-  height:100px;
-  clear:both;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.storeInfo {
+  background-color: crimson;
+  width: 500px;
+  border: black;
+  border-radius: 3px;
+  margin-left: 500px;
+  margin-bottom: 50px;
+}
+
+img {
+  display: inline-block;
+  width: 300px;
+}
+
+div {
+  text-align: center;
+  padding: 10px 20px;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div:first-child {
+  background-color:#011627;
+  color: white;
+
+}
+
+.images {
+  background-color: white;
+  height: auto;
+  border-radius: 8px;
+  border-color: black;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  border: 5px solid #FFFF00;
+  margin-top: 100px;
+}
+
+#googlef {
+  font-family: 'Itim', cursive;
+  font-family: 'Syne Mono', monospace;
+}
+
+p {
+  font-family: "Times New Roman", Times, serif; 
+}
+h1 {
+  color: #011627;
+  font-size: xx-large;
+  text-align: left;
+}
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+  height: 70px;
+  background-color: #011627;
+  margin-top: 500px;
+  width: 100%;
 }
